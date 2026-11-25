@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Oxi-Sanitização para Barbearias | App Comercial &amp; Agenda · OXI·BARBER</title>
+    <meta
+      name="description"
+      content="Feche contratos mensais de oxi-sanitização em barbearias: tecnologia de ozônio por plasma frio, calculadora de custo por corte, cadastro de barbearias e agenda iOS."
+    />
+    <meta name="theme-color" content="#161c26" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="OXI·BARBER" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Bebas+Neue&display=swap"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#topo" class="brand">
+          <span>OXI<span class="brand-dot">·</span>BARBER</span>
+          <span class="brand-tag">Plasma Frio O₃</span>
+        </a>
+        <nav class="nav-actions" aria-label="Navegação principal">
+          <a href="#planos" class="btn btn-outline">Planos</a>
+          <a href="#calculadora" class="btn btn-outline">Calculadora</a>
+          <a href="#cadastro-agenda" class="btn btn-outline">Cadastro &amp; Agenda</a>
+          <a href="./apresentacao-oxi-barbearias.pdf" download="apresentacao-oxi-barbearias.pdf" class="btn btn-gold">
+            Baixar PDF
+          </a>
+        </nav>
+        <button id="menu-open" type="button" class="menu-toggle" aria-label="Abrir menu lateral" aria-expanded="false" aria-controls="side-drawer">
+          <span aria-hidden="true">☰</span>
+          <span>Menu</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MENU LATERAL MOBILE -->
+    <div id="drawer-backdrop" class="drawer-backdrop" aria-hidden="true"></div>
+    <aside id="side-drawer" class="side-drawer" aria-label="Menu lateral" aria-hidden="true">
+      <div class="drawer-head">
+        <span class="brand" style="font-size:1.5rem;">
+          <span>OXI<span class="brand-dot">·</span>BARBER</span>
+        </span>
+        <button id="menu-close" type="button" class="drawer-close" aria-label="Fechar menu">×</button>
+      </div>
+      <nav class="drawer-nav" aria-label="Links do menu lateral">
+        <a href="#planos" class="drawer-link"><span>Planos</span><span>→</span></a>
+        <a href="#calculadora" class="drawer-link"><span>Calculadora</span><span>→</span></a>
+        <a href="#cadastro-agenda" class="drawer-link"><span>Cadastro &amp; Agenda</span><span>→</span></a>
+        <a href="./apresentacao-oxi-barbearias.pdf" download="apresentacao-oxi-barbearias.pdf" class="drawer-link is-pdf">
+          <span>Baixar PDF</span><span>↓</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main id="topo">
+      <!-- HERO -->
+      <section class="hero oxi-glow">
+        <span aria-hidden="true" class="oxi-bubble" style="position:absolute;left:10%;top:18%;width:12px;height:12px;border-radius:999px;background:var(--oxi-ozone);"></span>
+        <span aria-hidden="true" class="oxi-bubble" style="position:absolute;left:42%;top:12%;width:8px;height:8px;border-radius:999px;background:var(--oxi-ozone);animation-delay:1.3s;"></span>
+        <span aria-hidden="true" class="oxi-bubble" style="position:absolute;left:86%;top:28%;width:14px;height:14px;border-radius:999px;background:var(--oxi-gold);animation-delay:2.2s;"></span>
+
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Oxi-sanitização profissional com ozônio</p>
+            <h1 class="hero-title">Cadeira limpa é cliente que volta.</h1>
+            <p class="hero-sub">
+              Transforme a higiene da barbearia em argumento de venda. Com tecnologia de
+              <strong>ozônio por plasma frio</strong>, eliminamos fungos, bactérias, vírus e odores
+              do ar, do ar-condicionado e dos estofados — <strong>sem químicos e sem fechar um minuto do expediente</strong>.
+            </p>
+            <div class="hero-ctas">
+              <a href="#calculadora" class="btn btn-primary">Simular custo por corte</a>
+              <a href="#cadastro-agenda" class="btn btn-outline">Cadastrar barbearia &amp; agenda</a>
+              <a href="./apresentacao-oxi-barbearias.pdf" download="apresentacao-oxi-barbearias.pdf" class="btn btn-gold">
+                Baixar PDF
+              </a>
+            </div>
+            <div class="hero-badges">
+              <span class="pill"><strong>Até 99,99%</strong> redução microbiológica</span>
+              <span class="pill"><strong>Zero químicos</strong> ou refis</span>
+              <span class="pill"><strong>O₃ → O₂</strong> sem resíduos</span>
+              <span class="pill"><strong>Agenda iOS</strong> (.ics + WhatsApp)</span>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Resumo de retorno mensal">
+            <p class="eyebrow">Conta rápida para o dono</p>
+            <h2 class="font-display" style="margin:8px 0 0;font-size:2.1rem;line-height:1;">
+              Menos que uma toalha descartável por atendimento
+            </h2>
+            <p style="margin:8px 0 0;color:var(--oxi-muted);font-size:0.95rem;">
+              No plano Mensal Fixo (4 aplicações/mês), uma barbearia com 25 clientes/dia paga o mês inteiro com poucos cortes.
+            </p>
+            <div class="metric-row">
+              <div class="mini-stat">
+                <div class="label">Custo por cliente</div>
+                <div class="val">R$ 0,60</div>
+              </div>
+              <div class="mini-stat">
+                <div class="label">Cortes que pagam</div>
+                <div class="val" style="color:var(--oxi-gold);">8 / mês</div>
+              </div>
+              <div class="mini-stat">
+                <div class="label">Economia vs avulso</div>
+                <div class="val">R$ 330</div>
+              </div>
+              <div class="mini-stat">
+                <div class="label">Parada no salão</div>
+                <div class="val">0 min</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- DORES DA BARBEARIA -->
+      <section class="section">
+        <div class="container">
+          <p class="eyebrow">Por que o dono perde clientes sem perceber</p>
+          <h2 class="section-title">O risco invisível que o pano e o álcool não resolvem</h2>
+          <p class="section-lead">
+            Navalha e máquina têm atenção no balcão, mas o ambiente inteiro acumula carga biológica e odores entre um atendimento e outro.
+          </p>
+
+          <div class="grid-3">
+            <article class="card">
+              <span class="card-accent-bar bar-danger"></span>
+              <h3>Foliculite, micose e dermatites</h3>
+              <p>
+                Fungos e bactérias (como <em>Staphylococcus</em>) se alojam no estofado das cadeiras,
+                apoios de cabeça, capas e toalhas úmidas, passando de cliente para cliente.
+              </p>
+            </article>
+            <article class="card">
+              <span class="card-accent-bar bar-danger"></span>
+              <h3>Ar-condicionado contaminado</h3>
+              <p>
+                Salão fechado e climatizado recircula esporos de mofo e aerossóis de cabelo e pele
+                durante 10 horas por dia, causando rinite e desconforto em barbeiros e clientes.
+              </p>
+            </article>
+            <article class="card">
+              <span class="card-accent-bar bar-danger"></span>
+              <h3>Cheiro impregnado que afasta</h3>
+              <p>
+                Pomadas, loções, suor, umidade e fumaça ficam presos na espuma das cadeiras.
+                Aromatizante só <strong>mascara</strong> o odor por alguns minutos; o ozônio <strong>oxida na raiz</strong>.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPARATIVO INSPIRADO WIER -->
+      <section class="section">
+        <div class="container">
+          <p class="eyebrow">Tecnologia de Plasma Frio (inspiração WIER)</p>
+          <h2 class="section-title">Limpeza comum vs. Oxi-Sanitização semanal</h2>
+          <div class="compare-box">
+            <div class="compare-row">
+              <span>Critério no salão</span>
+              <span style="color:var(--oxi-muted);">Álcool + Aromatizante</span>
+              <span style="color:var(--oxi-ozone);">Oxi-Sanitização com Ozônio (O₃)</span>
+            </div>
+            <div class="compare-row">
+              <strong>Alcance real</strong>
+              <span style="color:var(--oxi-muted);">Apenas superfície lisa onde o pano passa</span>
+              <span>Gás penetra frestas, tramas, estofados e dutos do ar-condicionado</span>
+            </div>
+            <div class="compare-row">
+              <strong>Odores persistentes</strong>
+              <span style="color:var(--oxi-muted);">Mascara com perfume; volta em horas</span>
+              <span>Quebra e oxida as moléculas do odor na origem</span>
+            </div>
+            <div class="compare-row">
+              <strong>Resíduos e química</strong>
+              <span style="color:var(--oxi-muted);">Deixa filme químico e risco de irritação</span>
+              <span>Gerado do próprio ar (O₂ → O₃) e volta a ser oxigênio puro (O₂)</span>
+            </div>
+            <div class="compare-row">
+              <strong>Percepção do cliente</strong>
+              <span style="color:var(--oxi-muted);">Invisível; obrigação básica</span>
+              <span>Diferencial premium com Selo na vitrine e posts no Instagram</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMO FUNCIONA -->
+      <section class="section">
+        <div class="container">
+          <p class="eyebrow">Operação sem dor de cabeça</p>
+          <h2 class="section-title">Como funciona na sua barbearia</h2>
+          <div class="grid-3">
+            <article class="card">
+              <div class="step-num">01</div>
+              <h3>Agenda fora do expediente</h3>
+              <p>
+                Vamos sempre com o salão fechado e desocupado (sem pessoas, animais ou plantas).
+                Você não perde nenhum horário de corte.
+              </p>
+            </article>
+            <article class="card">
+              <div class="step-num">02</div>
+              <h3>Ciclo calculado por m²</h3>
+              <p>
+                O gerador de plasma frio transforma o oxigênio do ar em ozônio na concentração certa
+                para o tamanho do salão, alcançando cadeiras, bancadas e ar-condicionado.
+              </p>
+            </article>
+            <article class="card">
+              <div class="step-num">03</div>
+              <h3>Ventilação e Selo do mês</h3>
+              <p>
+                Após o tempo de meia-vida e ventilação, o ozônio vira oxigênio puro. Entregamos o
+                relatório da aplicação e o selo para você divulgar aos clientes.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLANOS -->
+      <section id="planos" class="section">
+        <div class="container">
+          <p class="eyebrow">Modelo de assinatura recorrente</p>
+          <h2 class="section-title">Escolha o plano ideal para o ritmo da barbearia</h2>
+          <p class="section-lead">
+            Uma única aplicação resolve hoje, mas 25+ clientes por dia recontaminam o ambiente toda semana.
+            Por isso a assinatura mensal garante proteção contínua pela metade do preço por visita.
+          </p>
+          <div id="plans-grid" class="grid-3"></div>
+        </div>
+      </section>
+
+      <!-- CALCULADORA + PROPOSTA -->
+      <section id="calculadora" class="section">
+        <div class="container">
+          <div class="calc-panel">
+            <div>
+              <p class="eyebrow">Calculadora de retorno + gerador de proposta</p>
+              <h2 class="section-title" style="font-size:2.4rem;">Quanto custa por cliente?</h2>
+              <p style="margin:8px 0 0;color:var(--oxi-muted);font-size:0.95rem;">
+                Preencha os dados da barbearia para mostrar ao dono na hora e enviar a proposta pronta no WhatsApp.
+              </p>
+
+              <label class="field">
+                Nome da barbearia
+                <input id="input-barbearia" class="text-input" type="text" placeholder="Ex: Barbearia Dom Navalha" value="Barbearia Dom Navalha" />
+              </label>
+
+              <label class="field">
+                WhatsApp do dono (opcional, só dígitos com DDD)
+                <input id="input-whats" class="text-input" type="tel" placeholder="Ex: 81999999999" />
+              </label>
+
+              <label class="field">
+                Cadeiras de atendimento: <strong id="lbl-cadeiras" style="color:var(--oxi-ozone);">3</strong>
+                <input id="input-cadeiras" class="range-input" type="range" min="1" max="12" value="3" />
+              </label>
+
+              <label class="field">
+                Clientes por dia (total do salão): <strong id="lbl-clientes" style="color:var(--oxi-ozone);">25</strong>
+                <input id="input-clientes" class="range-input" type="range" min="5" max="100" value="25" />
+              </label>
+
+              <label class="field">
+                Ticket médio por atendimento: <strong id="lbl-ticket" style="color:var(--oxi-ozone);">R$ 50</strong>
+                <input id="input-ticket" class="range-input" type="range" min="25" max="160" step="5" value="50" />
+              </label>
+
+              <label class="field">
+                Dias abertos no mês: <strong id="lbl-dias" style="color:var(--oxi-ozone);">26</strong>
+                <input id="input-dias" class="range-input" type="range" min="16" max="30" value="26" />
+              </label>
+            </div>
+
+            <div>
+              <div class="stats-grid">
+                <div class="stat-box">
+                  <div class="label">Plano selecionado</div>
+                  <div id="out-plano" class="value" style="font-size:1.85rem;">Mensal Fixo</div>
+                </div>
+                <div class="stat-box">
+                  <div class="label">Investimento mensal</div>
+                  <div id="out-investimento" class="value">R$ 390</div>
+                </div>
+                <div class="stat-box">
+                  <div class="label">Custo por atendimento</div>
+                  <div id="out-por-cliente" class="value accent">R$ 0,60</div>
+                </div>
+                <div class="stat-box">
+                  <div class="label">Cortes que pagam o mês</div>
+                  <div id="out-cortes" class="value gold">8 cortes</div>
+                </div>
+              </div>
+
+              <div class="proposal-box">
+                <p style="margin:0;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--oxi-gold);font-weight:700;">
+                  Argumento de fechamento pronto
+                </p>
+                <p id="out-pitch" style="margin:8px 0 0;font-size:0.96rem;"></p>
+                <div class="proposal-actions">
+                  <button id="btn-copy" type="button" class="btn btn-primary">Copiar proposta</button>
+                  <a id="btn-whats" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
+                    Enviar no WhatsApp
+                  </a>
+                  <button id="btn-fill-crm" type="button" class="btn btn-outline">
+                    + Levar para Cadastro
+                  </button>
+                  <a href="./apresentacao-oxi-barbearias.pdf" download="apresentacao-oxi-barbearias.pdf" class="btn btn-outline">
+                    Baixar PDF (2 pág.)
+                  </a>
+                </div>
+                <p id="copy-feedback" role="status" style="margin:8px 0 0;font-size:0.84rem;color:var(--oxi-success);min-height:1.2em;"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CADASTRO + AGENDA iOS -->
+      <section id="cadastro-agenda" class="section">
+        <div class="container">
+          <p class="eyebrow">Gestão de contratos recorrentes + Agenda iPhone (iOS)</p>
+          <h2 class="section-title">Cadastro de Barbearias &amp; Agenda com Alerta</h2>
+          <p class="section-lead">
+            Cadastre cada barbearia fechada, salve direto na <strong>Agenda nativa do iPhone (.ics com alarmes de 1h e 15min antes + recorrência semanal)</strong> ou dispare o lembrete para o seu WhatsApp <strong>(81) 99536-2243</strong>.
+          </p>
+
+          <div class="crm-kpis">
+            <div class="stat-box">
+              <div class="label">Barbearias cadastradas</div>
+              <div id="kpi-total" class="value">0</div>
+            </div>
+            <div class="stat-box">
+              <div class="label">Receita mensal recorrente (MRR)</div>
+              <div id="kpi-mrr" class="value accent">R$ 0</div>
+            </div>
+            <div class="stat-box">
+              <div class="label">Visitas agendadas</div>
+              <div id="kpi-agendadas" class="value gold">0</div>
+            </div>
+          </div>
+
+          <div class="crm-layout">
+            <!-- FORMULÁRIO DE CADASTRO -->
+            <form id="crm-form" class="card">
+              <h3 class="font-display" style="font-size:1.9rem;letter-spacing:0.03em;">
+                Nova barbearia / agendamento
+              </h3>
+              <p style="margin:4px 0 0;font-size:0.88rem;color:var(--oxi-muted);">
+                Os dados ficam salvos localmente no seu navegador/iPhone (use Exportar Backup para salvar uma cópia).
+              </p>
+
+              <label class="field">
+                Nome da barbearia *
+                <input id="crm-nome" class="text-input" type="text" required placeholder="Ex: Barbearia Boa Viagem" />
+              </label>
+
+              <div class="form-grid-2">
+                <label class="field">
+                  Nome do dono / responsável
+                  <input id="crm-responsavel" class="text-input" type="text" placeholder="Ex: Marcos" />
+                </label>
+                <label class="field">
+                  WhatsApp da barbearia
+                  <input id="crm-whats" class="text-input" type="tel" placeholder="Ex: 81999999999" />
+                </label>
+              </div>
+
+              <label class="field">
+                Endereço / Bairro (vai para o mapa do Calendário iOS)
+                <input id="crm-endereco" class="text-input" type="text" placeholder="Ex: Av. Conselheiro Aguiar, 1200 - Boa Viagem" />
+              </label>
+
+              <div class="form-grid-2">
+                <label class="field">
+                  Nº de cadeiras
+                  <input id="crm-cadeiras" class="text-input" type="number" min="1" max="30" value="3" />
+                </label>
+                <label class="field">
+                  Área aproximada (m²)
+                  <input id="crm-metragem" class="text-input" type="number" min="10" max="500" value="45" />
+                </label>
+              </div>
+
+              <div class="form-grid-2">
+                <label class="field">
+                  Plano contratado
+                  <select id="crm-plano" class="text-input">
+                    <option value="mensal">Mensal Fixo — R$ 390/mês (1x/sem)</option>
+                    <option value="premium">Premium — R$ 690/mês (2x/sem)</option>
+                    <option value="avulso">Avulso — R$ 180</option>
+                  </select>
+                </label>
+                <label class="field">
+                  Dia fixo da semana
+                  <select id="crm-dia-semana" class="text-input">
+                    <option value="Segunda-feira">Segunda-feira</option>
+                    <option value="Terça-feira">Terça-feira</option>
+                    <option value="Quarta-feira">Quarta-feira</option>
+                    <option value="Quinta-feira">Quinta-feira</option>
+                    <option value="Sexta-feira">Sexta-feira</option>
+                    <option value="Sábado">Sábado</option>
+                    <option value="Domingo">Domingo</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="form-grid-2">
+                <label class="field">
+                  Data da próxima aplicação *
+                  <input id="crm-data" class="text-input" type="date" required />
+                </label>
+                <label class="field">
+                  Horário (fora do expediente) *
+                  <input id="crm-horario" class="text-input" type="time" value="20:30" required />
+                </label>
+              </div>
+
+              <label class="field">
+                Observações (chave, portão, ar-condicionado, etc.)
+                <input id="crm-obs" class="text-input" type="text" placeholder="Ex: Pegar chave com Marcos às 20:25" />
+              </label>
+
+              <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;">
+                <button type="submit" class="btn btn-primary">Salvar cadastro &amp; agendar</button>
+                <button id="crm-save-and-ics" type="button" class="btn btn-gold">
+                  Salvar + Abrir no Calendário iOS (.ics)
+                </button>
+              </div>
+              <p id="crm-feedback" role="status" style="margin:10px 0 0;font-size:0.86rem;color:var(--oxi-success);min-height:1.2em;"></p>
+            </form>
+
+            <!-- LISTA DA AGENDA + CONFIGURAÇÕES DE ALERTA -->
+            <div>
+              <div class="card" style="margin-bottom:16px;">
+                <h3 style="margin:0;font-size:1.1rem;">Configuração de alertas no celular (iOS)</h3>
+                <div class="form-grid-2" style="margin-top:6px;">
+                  <label class="field" style="margin-top:8px;">
+                    Seu WhatsApp para receber alertas
+                    <input id="cfg-alert-phone" class="text-input" type="tel" value="81995362243" />
+                  </label>
+                  <label class="field" style="margin-top:8px;">
+                    Webhook automático (opcional: Make/n8n)
+                    <input id="cfg-webhook" class="text-input" type="url" placeholder="https://hook..." />
+                  </label>
+                </div>
+                <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+                  <button id="btn-export-json" type="button" class="btn btn-outline btn-sm">Exportar Backup (.json)</button>
+                  <label class="btn btn-outline btn-sm" style="cursor:pointer;">
+                    Importar Backup
+                    <input id="input-import-json" type="file" accept="application/json" style="display:none;" />
+                  </label>
+                  <span style="font-size:0.8rem;color:var(--oxi-muted);">
+                    No iPhone: use "Agenda iOS (.ics)" para alarme nativo automático sem servidor.
+                  </span>
+                </div>
+              </div>
+
+              <div id="agenda-list" class="agenda-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ / OBJEÇÕES -->
+      <section class="section">
+        <div class="container">
+          <p class="eyebrow">Quebra de objeções</p>
+          <h2 class="section-title">Dúvidas comuns do dono de barbearia</h2>
+          <div class="grid-2">
+            <details class="faq-item" open>
+              <summary>Preciso fechar a barbearia durante o atendimento?</summary>
+              <p>
+                Não. A agenda mensal é fixa em horário fora do expediente (após o fechamento ou antes da abertura), garantindo zero impacto no faturamento.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Estraga couro de cadeira, espelhos ou máquinas?</summary>
+              <p>
+                Quando aplicado na dosagem e tempo adequados à metragem do salão, o processo é seguro para mobiliário e equipamentos, sem deixar umidade ou película química.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Substitui a esterilização de lâminas e limpeza diária?</summary>
+              <p>
+                Não substitui a limpeza física (varrer cabelo, limpar bancadas e esterilizar lâminas). A oxi-sanitização atua como camada superior para ar, dutos, estofados e pontos que o pano não alcança.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>E se eu quiser cancelar o plano mensal?</summary>
+              <p>
+                O plano Mensal Fixo não tem multa de fidelidade. O cliente permanece porque percebe o salão sem odor e usa o selo "Ambiente Oxi-Sanitizado" para atrair e fidelizar público.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        Protocolo de segurança: a aplicação de ozônio ocorre exclusivamente com o ambiente vazio (sem pessoas, animais ou plantas), respeitando o ciclo dimensionado e o tempo de ventilação para retorno seguro ao oxigênio (O₂). Referência tecnológica: geradores por plasma frio (linha Wier).
+      </div>
+    </footer>
+
+    <script src="./oxi.js"></script>
+    <script>
+      const {
+        DEFAULT_ALERT_PHONE,
+        PLANOS,
+        brl,
+        brlCentavos,
+        calcularROI,
+        montarTextoProposta,
+        escapeHtml,
+        sanitizePhone,
+        formatPhoneDisplay,
+        gerarICS,
+        gerarGoogleAgendaUrl,
+        gerarLinkAlertaWhatsApp,
+        loadCRM,
+        saveCRM,
+      } = window.OXI_BARBER;
+
+      // Menu Lateral (Drawer)
+      const menuOpenBtn = document.getElementById("menu-open");
+      const menuCloseBtn = document.getElementById("menu-close");
+      const sideDrawer = document.getElementById("side-drawer");
+      const drawerBackdrop = document.getElementById("drawer-backdrop");
+
+      function openDrawer() {
+        sideDrawer.classList.add("is-open");
+        drawerBackdrop.classList.add("is-open");
+        sideDrawer.setAttribute("aria-hidden", "false");
+        drawerBackdrop.setAttribute("aria-hidden", "false");
+        menuOpenBtn.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeDrawer() {
+        sideDrawer.classList.remove("is-open");
+        drawerBackdrop.classList.remove("is-open");
+        sideDrawer.setAttribute("aria-hidden", "true");
+        drawerBackdrop.setAttribute("aria-hidden", "true");
+        menuOpenBtn.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
+
+      menuOpenBtn.addEventListener("click", openDrawer);
+      menuCloseBtn.addEventListener("click", closeDrawer);
+      drawerBackdrop.addEventListener("click", closeDrawer);
+      sideDrawer.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeDrawer);
+      });
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && sideDrawer.classList.contains("is-open")) {
+          closeDrawer();
+        }
+      });
+
+      // Registrar Service Worker para PWA (quando servido via HTTPS/Vercel ou localhost)
+      if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
+      }
+
+      // 1) ESTADO DA CALCULADORA
+      const state = {
+        barbearia: "Barbearia Dom Navalha",
+        whatsapp: "",
+        cadeiras: 3,
+        clientesDia: 25,
+        ticket: 50,
+        diasMes: 26,
+        planoId: "mensal",
+      };
+
+      const plansGrid = document.getElementById("plans-grid");
+
+      function renderPlans() {
+        plansGrid.innerHTML = PLANOS.map((p) => {
+          const selected = state.planoId === p.id;
+          return `
+            <button type="button" data-plan="${p.id}" aria-pressed="${selected}" class="plan-card ${selected ? "is-selected" : ""}">
+              ${p.destaque ? `<span class="plan-badge">Mais fechado · Recorrente</span>` : ""}
+              <h3 class="plan-name">${p.nome}</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">${brl.format(p.preco)}</span>
+                <span class="plan-period">${p.periodo}</span>
+              </div>
+              <p style="margin:6px 0 0;font-size:0.86rem;color:var(--oxi-muted);">${p.tagline}</p>
+              ${p.economiaMes > 0 ? `<p class="plan-anchor">Economia de ${brl.format(p.economiaMes)}/mês frente ao avulso</p>` : ""}
+              <ul class="plan-list">
+                ${p.itens.map((item) => `<li><span class="check">✓</span><span>${item}</span></li>`).join("")}
+              </ul>
+            </button>
+          `;
+        }).join("");
+
+        plansGrid.querySelectorAll("[data-plan]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            state.planoId = btn.dataset.plan;
+            renderPlans();
+            updateOutputs();
+          });
+        });
+      }
+
+      function updateOutputs() {
+        const roi = calcularROI(state);
+        document.getElementById("lbl-cadeiras").textContent = state.cadeiras;
+        document.getElementById("lbl-clientes").textContent = state.clientesDia;
+        document.getElementById("lbl-ticket").textContent = brl.format(state.ticket);
+        document.getElementById("lbl-dias").textContent = state.diasMes;
+
+        document.getElementById("out-plano").textContent = roi.plano.nome;
+        document.getElementById("out-investimento").textContent = brl.format(roi.custoMes);
+        document.getElementById("out-por-cliente").textContent = brlCentavos.format(roi.porCliente);
+        document.getElementById("out-cortes").textContent = `${roi.cortesParaPagar} corte${roi.cortesParaPagar > 1 ? "s" : ""}`;
+
+        const nome = state.barbearia.trim() || "sua barbearia";
+        document.getElementById("out-pitch").innerHTML =
+          `Para a <strong>${escapeHtml(nome)}</strong> (${roi.atendMes.toLocaleString("pt-BR")} atendimentos/mês), o plano <strong>${escapeHtml(roi.plano.nome)}</strong> custa apenas <strong>${brlCentavos.format(roi.porCliente)} por cliente</strong> — isso representa <strong>${roi.percentualFaturamento.toFixed(1).replace(".", ",")}%</strong> do faturamento e se paga com <strong>${roi.cortesParaPagar} corte(s)</strong> no mês.`;
+
+        const texto = montarTextoProposta(state);
+        const fullPhone = sanitizePhone(state.whatsapp);
+        document.getElementById("btn-whats").href = fullPhone
+          ? `https://wa.me/${fullPhone}?text=${encodeURIComponent(texto)}`
+          : `https://wa.me/?text=${encodeURIComponent(texto)}`;
+      }
+
+      document.getElementById("input-barbearia").addEventListener("input", (e) => {
+        state.barbearia = e.target.value;
+        updateOutputs();
+      });
+      document.getElementById("input-whats").addEventListener("input", (e) => {
+        state.whatsapp = e.target.value;
+        updateOutputs();
+      });
+      document.getElementById("input-cadeiras").addEventListener("input", (e) => {
+        state.cadeiras = Number(e.target.value);
+        updateOutputs();
+      });
+      document.getElementById("input-clientes").addEventListener("input", (e) => {
+        state.clientesDia = Number(e.target.value);
+        updateOutputs();
+      });
+      document.getElementById("input-ticket").addEventListener("input", (e) => {
+        state.ticket = Number(e.target.value);
+        updateOutputs();
+      });
+      document.getElementById("input-dias").addEventListener("input", (e) => {
+        state.diasMes = Number(e.target.value);
+        updateOutputs();
+      });
+
+      document.getElementById("btn-copy").addEventListener("click", async () => {
+        const texto = montarTextoProposta(state);
+        const feedback = document.getElementById("copy-feedback");
+        try {
+          await navigator.clipboard.writeText(texto);
+          feedback.textContent = "Proposta copiada! Cole direto no WhatsApp do dono da barbearia.";
+        } catch {
+          feedback.textContent = "Não foi possível copiar automaticamente; use o botão Enviar no WhatsApp.";
+        }
+        setTimeout(() => {
+          feedback.textContent = "";
+        }, 4000);
+      });
+
+      // Levar dados da calculadora direto para o formulário de cadastro
+      document.getElementById("btn-fill-crm").addEventListener("click", () => {
+        document.getElementById("crm-nome").value = state.barbearia;
+        document.getElementById("crm-whats").value = state.whatsapp;
+        document.getElementById("crm-cadeiras").value = state.cadeiras;
+        document.getElementById("crm-plano").value = state.planoId;
+        document.getElementById("cadastro-agenda").scrollIntoView({ behavior: "smooth" });
+        document.getElementById("crm-responsavel").focus();
+      });
+
+      // 2) CRM LOCAL + AGENDA iOS (.ics) + ALERTA WHATSAPP (81) 99536-2243
+      let crm = loadCRM();
+      const cfgPhoneInput = document.getElementById("cfg-alert-phone");
+      const cfgWebhookInput = document.getElementById("cfg-webhook");
+      const crmDataInput = document.getElementById("crm-data");
+      const crmFeedback = document.getElementById("crm-feedback");
+
+      // Data padrão: amanhã
+      const tomorrow = new Date(Date.now() + 86400000);
+      crmDataInput.value = tomorrow.toISOString().slice(0, 10);
+      cfgPhoneInput.value = crm.alertPhone || DEFAULT_ALERT_PHONE;
+      cfgWebhookInput.value = crm.webhookUrl || "";
+
+      cfgPhoneInput.addEventListener("input", (e) => {
+        crm.alertPhone = e.target.value.replace(/\D/g, "") || DEFAULT_ALERT_PHONE;
+        saveCRM(crm);
+        renderCRM();
+      });
+
+      cfgWebhookInput.addEventListener("input", (e) => {
+        crm.webhookUrl = e.target.value.trim();
+        saveCRM(crm);
+      });
+
+      function baixarICS(item) {
+        const icsText = gerarICS(item);
+        const blob = new Blob([icsText], { type: "text/calendar;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        const slug = (item.nome || "barbearia").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        a.href = url;
+        a.download = `oxi-${slug}.ics`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+
+      async function dispararWebhookSeConfigurado(item) {
+        if (!crm.webhookUrl) return;
+        try {
+          await fetch(crm.webhookUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              evento: "agendamento_oxi_barber",
+              alertPhone: sanitizePhone(crm.alertPhone),
+              barbearia: item,
+            }),
+          });
+        } catch {
+          // Silencioso para não bloquear o fluxo offline/local
+        }
+      }
+
+      function lerFormularioCRM() {
+        return {
+          id: String(Date.now()),
+          nome: document.getElementById("crm-nome").value.trim(),
+          responsavel: document.getElementById("crm-responsavel").value.trim(),
+          whatsapp: document.getElementById("crm-whats").value.trim(),
+          endereco: document.getElementById("crm-endereco").value.trim(),
+          cadeiras: Number(document.getElementById("crm-cadeiras").value) || 3,
+          metragem: Number(document.getElementById("crm-metragem").value) || 45,
+          planoId: document.getElementById("crm-plano").value,
+          diaSemana: document.getElementById("crm-dia-semana").value,
+          proximaData: document.getElementById("crm-data").value,
+          horario: document.getElementById("crm-horario").value || "20:30",
+          observacoes: document.getElementById("crm-obs").value.trim(),
+          status: "agendada",
+          visitasConcluidas: 0,
+        };
+      }
+
+      function adicionarBarbearia(abrirICS) {
+        const item = lerFormularioCRM();
+        if (!item.nome || !item.proximaData) {
+          crmFeedback.style.color = "var(--oxi-danger)";
+          crmFeedback.textContent = "Preencha pelo menos o nome da barbearia e a data da aplicação.";
+          return;
+        }
+        crm.items.unshift(item);
+        saveCRM(crm);
+        renderCRM();
+        dispararWebhookSeConfigurado(item);
+
+        crmFeedback.style.color = "var(--oxi-success)";
+        crmFeedback.textContent = abrirICS
+          ? `Barbearia "${item.nome}" cadastrada e arquivo .ics gerado para a Agenda do iOS!`
+          : `Barbearia "${item.nome}" cadastrada na sua agenda local!`;
+
+        document.getElementById("crm-form").reset();
+        document.getElementById("crm-cadeiras").value = 3;
+        document.getElementById("crm-metragem").value = 45;
+        document.getElementById("crm-horario").value = "20:30";
+        crmDataInput.value = tomorrow.toISOString().slice(0, 10);
+
+        if (abrirICS) baixarICS(item);
+        setTimeout(() => {
+          crmFeedback.textContent = "";
+        }, 5000);
+      }
+
+      document.getElementById("crm-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        adicionarBarbearia(false);
+      });
+
+      document.getElementById("crm-save-and-ics").addEventListener("click", () => {
+        adicionarBarbearia(true);
+      });
+
+      function avancarUmaSemana(dataStr) {
+        const [y, m, d] = (dataStr || "").split("-").map(Number);
+        const dt = y && m && d ? new Date(y, m - 1, d) : new Date();
+        dt.setDate(dt.getDate() + 7);
+        return dt.toISOString().slice(0, 10);
+      }
+
+      function renderCRM() {
+        const listEl = document.getElementById("agenda-list");
+        const total = crm.items.length;
+        const mrr = crm.items.reduce((acc, item) => {
+          const plano = PLANOS.find((p) => p.id === item.planoId);
+          if (!plano || plano.id === "avulso") return acc;
+          return acc + plano.preco;
+        }, 0);
+        const agendadas = crm.items.filter((i) => i.status === "agendada").length;
+
+        document.getElementById("kpi-total").textContent = String(total);
+        document.getElementById("kpi-mrr").textContent = brl.format(mrr);
+        document.getElementById("kpi-agendadas").textContent = String(agendadas);
+
+        if (total === 0) {
+          listEl.innerHTML = `
+            <div class="agenda-card" style="text-align:center;padding:34px 20px;">
+              <p style="margin:0;font-size:1.05rem;font-weight:700;">Nenhuma barbearia cadastrada ainda</p>
+              <p style="margin:8px 0 0;color:var(--oxi-muted);font-size:0.92rem;">
+                Cadastre sua primeira barbearia ao lado para gerar o arquivo da Agenda iOS (.ics) com alarme automático e botão de alerta para ${escapeHtml(formatPhoneDisplay(crm.alertPhone))}.
+              </p>
+            </div>
+          `;
+          return;
+        }
+
+        const alertDisplay = formatPhoneDisplay(crm.alertPhone || DEFAULT_ALERT_PHONE);
+
+        listEl.innerHTML = crm.items
+          .map((item) => {
+            const plano = PLANOS.find((p) => p.id === item.planoId) || PLANOS[1];
+            const dataFmt = item.proximaData
+              ? item.proximaData.split("-").reverse().join("/")
+              : "A definir";
+            const waAlertHref = gerarLinkAlertaWhatsApp(item, crm.alertPhone);
+            const gcalHref = gerarGoogleAgendaUrl(item);
+            const ownerPhone = sanitizePhone(item.whatsapp);
+            const ownerText = `Olá ${item.responsavel || ""}! Tudo bem? Confirmando a oxi-sanitização na *${item.nome}* dia *${dataFmt} às ${item.horario}* (lembrando de deixar o salão vazio após o expediente).`;
+            const ownerWaHref = ownerPhone
+              ? `https://wa.me/${ownerPhone}?text=${encodeURIComponent(ownerText)}`
+              : "";
+
+            return `
+              <article class="agenda-card" data-id="${escapeHtml(item.id)}">
+                <div class="agenda-card-head">
+                  <div>
+                    <h4 style="margin:0;font-size:1.18rem;">${escapeHtml(item.nome)}</h4>
+                    <p style="margin:3px 0 0;font-size:0.86rem;color:var(--oxi-muted);">
+                      ${escapeHtml(plano.nome)} (${brl.format(plano.preco)}${escapeHtml(plano.periodo)}) · ${item.cadeiras} cadeiras · ${item.metragem} m²
+                    </p>
+                  </div>
+                  <span class="status-badge ${item.status === "concluida" ? "status-concluida" : "status-agendada"}">
+                    ${item.status === "concluida" ? `Concluída (${item.visitasConcluidas || 1}x)` : "Agendada"}
+                  </span>
+                </div>
+
+                <p style="margin:10px 0 0;font-size:0.92rem;">
+                  <strong>Próxima visita:</strong> ${escapeHtml(dataFmt)} às ${escapeHtml(item.horario)} (${escapeHtml(item.diaSemana)})
+                  ${item.responsavel ? ` · <strong>Contato:</strong> ${escapeHtml(item.responsavel)}` : ""}
+                </p>
+                ${item.endereco ? `<p style="margin:4px 0 0;font-size:0.86rem;color:var(--oxi-muted);">📍 ${escapeHtml(item.endereco)}</p>` : ""}
+                ${item.observacoes ? `<p style="margin:4px 0 0;font-size:0.86rem;color:var(--oxi-gold);">📝 ${escapeHtml(item.observacoes)}</p>` : ""}
+
+                <div class="agenda-actions">
+                  <button type="button" data-act="ics" class="btn btn-primary btn-sm">
+                    📅 Agenda iOS (.ics)
+                  </button>
+                  <a href="${gcalHref}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                    Google Agenda
+                  </a>
+                  <a href="${waAlertHref}" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
+                    📲 Alerta ${escapeHtml(alertDisplay)}
+                  </a>
+                  ${ownerWaHref ? `<a href="${ownerWaHref}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Confirmar c/ dono</a>` : ""}
+                  <button type="button" data-act="next-week" class="btn btn-outline btn-sm">
+                    ✅ Concluir (+7 dias)
+                  </button>
+                  <button type="button" data-act="delete" class="btn btn-outline btn-sm" style="color:var(--oxi-danger);">
+                    Excluir
+                  </button>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+
+        listEl.querySelectorAll(".agenda-card").forEach((card) => {
+          const id = card.dataset.id;
+          const item = crm.items.find((x) => x.id === id);
+          if (!item) return;
+
+          card.querySelector('[data-act="ics"]')?.addEventListener("click", () => baixarICS(item));
+          card.querySelector('[data-act="next-week"]')?.addEventListener("click", () => {
+            item.visitasConcluidas = (item.visitasConcluidas || 0) + 1;
+            if (item.planoId === "avulso") {
+              item.status = "concluida";
+            } else {
+              item.proximaData = avancarUmaSemana(item.proximaData);
+              item.status = "agendada";
+            }
+            saveCRM(crm);
+            renderCRM();
+          });
+          card.querySelector('[data-act="delete"]')?.addEventListener("click", () => {
+            crm.items = crm.items.filter((x) => x.id !== id);
+            saveCRM(crm);
+            renderCRM();
+          });
+        });
+      }
+
+      // Backup Export / Import JSON
+      document.getElementById("btn-export-json").addEventListener("click", () => {
+        const blob = new Blob([JSON.stringify(crm, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `backup-oxi-barber-${new Date().toISOString().slice(0, 10)}.json`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      });
+
+      document.getElementById("input-import-json").addEventListener("change", async (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        try {
+          const parsed = JSON.parse(await file.text());
+          if (Array.isArray(parsed.items)) {
+            crm = {
+              alertPhone: parsed.alertPhone || DEFAULT_ALERT_PHONE,
+              webhookUrl: parsed.webhookUrl || "",
+              items: parsed.items,
+            };
+            saveCRM(crm);
+            cfgPhoneInput.value = crm.alertPhone;
+            cfgWebhookInput.value = crm.webhookUrl;
+            renderCRM();
+            crmFeedback.style.color = "var(--oxi-success)";
+            crmFeedback.textContent = "Backup restaurado com sucesso!";
+          }
+        } catch {
+          crmFeedback.style.color = "var(--oxi-danger)";
+          crmFeedback.textContent = "Arquivo JSON inválido.";
+        }
+        e.target.value = "";
+      });
+
+      renderPlans();
+      updateOutputs();
+      renderCRM();
+    </script>
+  </body>
+</html>
